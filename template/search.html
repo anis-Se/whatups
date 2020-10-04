@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <style type="text/css">
+        .site-header{
+    	background-color:#cbd5db;
+    	margin: auto;
+    	padding: auto;
+
+        }
+        .form-group{
+           border-radius: 5px;
+              
+              padding: 20px;
+        }
+        #p1{
+    		display: inline;
+    		float: left;
+    		font-style: italic;
+
+        }
+		#p2{
+    		display: inline;
+      		margin: 5px;
+    		float: right;
+        }
+        .form-group{
+             width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box; 
+        }
+        
+        .btn-primary{
+           width: 100%;
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;   
+        }
+        .srch-note{
+        display: inline;
+    		float: left;
+    		font-style: italic;
+        }
+    </style>
+	<title> {{ user_id }} </title>
+</head>
+<body>
+<div class="site-header"> 
+        <div id="p1"><h1>Project01</h1></div>
+		<div id="p2"><a href={{ url_for ('logout') }}> log out </a> </div>
+	
+	<div class="srch-note">please enter the name or the number of the book in the case bellow</div>
+
+	<form action="{{ url_for('search') }}" method="post">
+
+		
+        <div class="form-group">
+              {{ form.csrf_token }} 
+        {{ form.bbar.label }} {{ form.bbar(size=20) }}
+
+    
+            <button class="btn-primary">submit</button>   </div> 
+		</form></div>
+</body>
+</html>

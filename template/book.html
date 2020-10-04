@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        .site-header{
+            color: grey;
+        background-color:#cbd5db;
+        
+        }
+        .form-group{
+           border-radius: 5px;
+              
+              padding: 20px;
+        }
+        #p1{
+            display: inline;
+            float: left;
+            font-style: italic;
+
+        }
+        #p2{
+            display: inline;
+            margin: 5px;
+            float: right;
+        }
+        .table{
+            display: inline;
+            float: left;
+            font-style: italic;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+	<div class="site-header"> 
+		<div id="p1"><h1>Project01</h1></div>
+		<div id="p2"><a href={{ url_for ('index') }}> home </a></div>
+		
+	 </div>
+     <div class="table">
+        <ul>
+        {% for book in b %}
+           <li><a href="{{ url_for('books', isbn=book.isbn) }}"> {{book.title}}  from the author {{book.author}} </a></li>
+        {% endfor %}
+    </ul></div>
+   
+
+</body>
+</html>

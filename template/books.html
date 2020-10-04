@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <style type="text/css">
+        .site-header{
+    background-color:#cbd5db;
+
+        }
+      
+        #p1{
+    display: inline;
+    float: left;
+    font-style: italic;
+
+        }
+    #p2{
+    display: inline;
+      margin: 5px;
+    float: right;
+        }
+        .book-info, #p{
+             width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box; 
+        }
+        .com-sec{
+            background-color:   #EEE8AA;
+            width: 600px;
+            
+            padding: 12px 20px;
+            margin: 0 auto;
+
+        }
+        #commentaire{
+                background-color: #E9967A;
+                padding: 15px;
+                margin: 10px;
+                border-radius: 60px/40px;
+        }
+        
+      
+    </style>
+	<title>{{b.title}}</title>
+</head>
+<body>
+    <div class="site-header"> 
+         <div id="p1"><h1>Project01</h1></div>
+        <div id="p2"><a href={{ url_for ('index') }}> home </a></div>
+        <div id="p2"><a href={{ url_for ('search') }}> look for another book </a></div>
+     </div>
+     <div class="book-info">
+	   <h1>book Details</h1>
+
+    <ul>
+    	{% for book in b %}
+        <li>number: {{ book.isbn }}</li>
+        <li>title: {{ book.title }}</li>
+        <li>author: {{ book.author}} </li>
+        <li>year: {{ book.year}} </li>
+         {% endfor %}
+    </ul></div>
+
+
+       <div id="p1">{% for book in b %}<a href="{{ url_for ('reviews',isbn=book.isbn)}}"> leave a comment </a>
+      {% endfor %}  <div>  
+</body> 
+     {{ress}} </div>
+     <div class="com-sec">
+        <ul>
+        {% for c in d %}
+        <li id="commentaire">user: {{ c.user_id }}
+        comment: {{ c.comment }}</li>
+        
+         {% endfor %}
+    </ul>
+    </div>
+     
+</html>

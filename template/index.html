@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+
+		<div class="article"> 
+		<h3>hello, welcome to your book reader website</h3>
+			<h5>to read books please <a href={{ url_for ('login') }}> log in </a>
+			</h5>
+			<h5>new here, create a free account <a href={{ url_for ('register') }}> register </a> </h5>	 
+		</div>
+{% endblock content %}
